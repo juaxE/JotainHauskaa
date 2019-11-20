@@ -9,7 +9,7 @@ public class TipController {
 
     @RequestMapping("/")
     @ResponseBody
-    public String testHandler () {
+    public String testHandler() {
         return "<h1>Tips</h1>";
     }
 }
