@@ -54,16 +54,4 @@ public class KirjaVinkki {
     public String[] getKurssit() {
         return kurssit;
     }
-
-    @Override
-    public String toString() {
-        return "Kirjoittaja: " + kirjoittaja + "\n"
-                + "Otsikko: " + otsikko + "\n"
-                + "Tyypi: " + tyyppi + "\n"
-                + "ISBN: " + isbn + "\n"
-                + "Kuvaus: " + kuvaus + "\n"
-                + "Kommentti: " + kommentti + "\n"
-                + "Tagit: " + Arrays.toString(tagit) + "\n"
-                + "Kurssit: " + Arrays.toString(kurssit) + "\n";
-    }
 }
