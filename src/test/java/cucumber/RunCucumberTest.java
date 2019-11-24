@@ -1,4 +1,4 @@
-package cucumber_testit;
+package cucumber;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -11,4 +11,6 @@ import org.junit.runner.RunWith;
   features = "src/test/resources/jotainhauskaa", 
   snippets = SnippetType.CAMELCASE 
 )
-public class RunCucumberTest {}
+public class RunCucumberTest {
+  
+}

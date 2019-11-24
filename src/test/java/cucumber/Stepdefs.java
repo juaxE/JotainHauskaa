@@ -1,4 +1,4 @@
-package cucumber_testit;
+package cucumber;
 
 import static org.junit.Assert.assertEquals;
 
@@ -11,12 +11,13 @@ import jotainhauskaa.vinkkilista.dao.MuistiKirjaVinkkiDao;
 import jotainhauskaa.vinkkilista.dao.KirjaVinkkiDao;
 
 public class Stepdefs {
-    KirjaVinkki k;
-    KirjaVinkkiDao d = new MuistiKirjaVinkkiDao();
+    private KirjaVinkki k;
+    private KirjaVinkkiDao d = new MuistiKirjaVinkkiDao();
 
     @Given("luodaan kirjavinkki jonka kirjoittaja on {string}")
     public void kirjavinkkiLuodaan (String kirjoittajanNimi) {
-        k = new KirjaVinkki ("Esa", "Häivähdys punaista", "Kirja", "121212", "Kaunokirjallisuus", "", new String [1], new String [1]);
+        k = new KirjaVinkki("Esa", "Häivähdys punaista", "Kirja", "121212", 
+        "Kaunokirjallisuus", "", new String [1], new String [1]);
   
     }
     @Then("kirjan kirjoittajan nimen pitäisi olla {string}")
@@ -24,13 +25,11 @@ public class Stepdefs {
         assertEquals("Esa", k.getKirjoittaja());
     }
     @When("kirjavinkki lisätään muistikirjaan")
-    public void kirjavinkkiLisataanMuistikirjaan () {
+    public void kirjavinkkiLisataanMuistikirjaan() {
         d.add(k);
     }
     @Then("kirjavinkki on lisätty muistikirjaan")
-    public void kirjaVinkkiLöytyyMuistikirjasta () {
+    public void kirjaVinkkiLoytyyMuistiKirjasta() {
         assertEquals(1, d.getAll().size());
-    }
-
-        
+    }     
 }
