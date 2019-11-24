@@ -20,4 +20,7 @@ public class MuistiKirjaVinkkiDao implements KirjaVinkkiDao {
     public void add(KirjaVinkki vinkki) {
         kirjavinkit.add(vinkki);
     }
+    
+        
+    
 }
