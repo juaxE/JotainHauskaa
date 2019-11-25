@@ -13,22 +13,35 @@
     <div th:if="${#lists.isEmpty(vinkit)}">
         <p>Ei lisättyjä vinkkejä</p>
     </div>
-    <tr th:each="vinkki :${vinkit}">
+    <div th:each="vinkki :${vinkit}">
         <div class="card bg-light text-dark mb-2 col-sm">
 
             <div class="card-body">
                 <h3 class="card-title" th:text="${vinkki.otsikko}"></h3>
-                Kirjoittaja: <span th:text="${vinkki.kirjoittaja}"></span><br>
-                Tyyppi: <span th:text="${vinkki.tyyppi}"></span><br>
-                ISBN: <span th:text="${vinkki.isbn}"></span><br>
-                Kuvaus: <span th:text="${vinkki.kuvaus}"></span><br>
-                Komentti: <span th:text="${vinkki.kommentti}"></span><br>
-                Tagit: <span th:text="${vinkki.tagit[0]}"></span><br>
-                Aihealueeseen liittyvät kurssit: <span th:text="${vinkki.kurssit[0]}"></span>
+                <div class ="col pl-0"> 
+                    Kirjoittaja: <span th:text="${vinkki.kirjoittaja}">
+                </div>
+                <div class ="col pl-0"> 
+                    Tyyppi: <span th:text="${vinkki.tyyppi}">
+                </div>
+                <div class ="col pl-0"> 
+                    ISBN: <span th:text="${vinkki.isbn}">
+                </div>
+                <div class ="col pl-0"> 
+                    Kuvaus: <span th:text="${vinkki.kuvaus}">
+                </div>
+                <div class ="col pl-0"> 
+                    Kommentti: <span th:text="${vinkki.kommentti}">
+                </div>
+                <div class ="col pl-0"> 
+                    Tagit: <span th:text="${vinkki.tagit[0]}">
+                </div>
+                <div class ="col pl-0"> 
+                    Aihealueeseen liittyvät kurssit: <span th:text="${vinkki.kurssit[0]}">
+                </div>
             </div>
         </div>
-
-    </tr>
+    </div>
     <div class="col-3">
         <a href="/" class="btn btn-md btn-primary btn-block">Palaa etusivulle</a>
     </div>
