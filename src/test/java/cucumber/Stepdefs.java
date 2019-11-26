@@ -8,26 +8,57 @@ import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
 import jotainhauskaa.vinkkilista.dao.MuistiKirjaVinkkiDao;
 import jotainhauskaa.vinkkilista.dao.KirjaVinkkiDao;
 
+import java.util.ArrayList;
+
 public class Stepdefs {
     private KirjaVinkki k;
+    private ArrayList<KirjaVinkki> kirjavinkit = new ArrayList<KirjaVinkki>();
     private KirjaVinkkiDao d = new MuistiKirjaVinkkiDao();
 
     @Given("luodaan kirjavinkki jonka kirjoittaja on {string}")
     public void kirjavinkkiLuodaan(String kirjoittajanNimi) {
-        k = new KirjaVinkki("Esa", "Häivähdys punaista", "Kirja", "121212",
+        k = new KirjaVinkki(kirjoittajanNimi, "Punaista", "Kirjaa", "12",
                 "Kaunokirjallisuus", "", new String[1], new String[1]);
-  
     }
+
+    @Given("luodaan kirjavinkkejä")
+    public void kirjavinkitLuodaan() {
+        kirjavinkit.add(new KirjaVinkki("Esa", "Punaista", "Kirjaa", "12",
+                "Kaunokirjallisuus", "", new String[1], new String[1]));
+
+        kirjavinkit.add(new KirjaVinkki("Tero", "Punaista", "Kirjaa", "12",
+                "Kaunokirjallisuus", "", new String[2], new String[2]));
+    }
+
     @Then("kirjan kirjoittajan nimen pitäisi olla {string}")
     public void kirjanKirjoittajanNimiOnOikein(String kirjoittajanNimi) {
         assertEquals("Esa", k.getKirjoittaja());
     }
+
+    @Then("nähdaan kirjavinkki")
+    public void nahdaanKirjavinkki() {
+        assertEquals(1, d.getAll().size());
+    }
+
+    @Then("nähdaan kirjavinkit")
+    public void nahdaanKirjavinkit() {
+        assertEquals(2, d.getAll().size());
+    }
+
     @When("kirjavinkki lisätään muistikirjaan")
     public void kirjavinkkiLisataanMuistikirjaan() {
         d.add(k);
     }
+
     @Then("kirjavinkki on lisätty muistikirjaan")
     public void kirjaVinkkiLoytyyMuistiKirjasta() {
         assertEquals(1, d.getAll().size());
-    }     
+    }
+
+    @When("kirjavinkit lisätään muistikirjaan")
+    public void kirjaVinkitLisataanMuistikirjaan() {
+        for (KirjaVinkki vinkki : kirjavinkit) {
+            d.add(vinkki);
+        }
+    }
 }
