@@ -18,8 +18,7 @@ User Story (vaatimus) on valmis, kun
 + storylle on määritytelty hyväksymiskriteerit
 + hyväksymiskriteerit on testattu onnistuneesti (Cucumber) 
 + yksikkötestit suoritettu hyväksytysti
-    + rivikattavuus yli 80%
-    + haarautumakattavuus 100%
+    + järkevät rivi- ja haarautumakattavuudet
     + testit menevät läpi
 + joku tiimin jäsen on tehnyt koodikatselmoinnin
 + story on otettu käyttöön herokussa
