@@ -2,6 +2,7 @@
 OhTu:n miniprojekti syksy 2019
 
 [![CircleCI](https://circleci.com/gh/juaxE/JotainHauskaa.svg?style=svg)](https://circleci.com/gh/juaxE/JotainHauskaa)
+[![codecov](https://codecov.io/gh/juaxE/JotainHauskaa/branch/master/graph/badge.svg)](https://codecov.io/gh/juaxE/JotainHauskaa)
 
 # Demo
 [vinkki.herokuapp.com](https://vinkki.herokuapp.com/)
