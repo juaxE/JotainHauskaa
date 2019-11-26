@@ -12,6 +12,7 @@ OhTu:n miniprojekti syksy 2019
 
 # Definition of Done
 [Cucumber features](https://github.com/juaxE/JotainHauskaa/tree/master/src/test/resources/jotainhauskaa)
+
 User Story (vaatimus) on valmis, kun 
 + story on analysoitu & suunniteltu
     + tekniset vaatimukset on selvitetty ja jaettu taskeiksi
