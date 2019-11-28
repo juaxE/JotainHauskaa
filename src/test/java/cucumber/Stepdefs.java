@@ -6,14 +6,14 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
 import jotainhauskaa.vinkkilista.dao.MuistiKirjaVinkkiDao;
-import jotainhauskaa.vinkkilista.dao.KirjaVinkkiDao;
+//import jotainhauskaa.vinkkilista.dao.KirjaVinkkiDao;
 
 import java.util.ArrayList;
 
 public class Stepdefs {
     private KirjaVinkki k;
     private ArrayList<KirjaVinkki> kirjavinkit = new ArrayList<KirjaVinkki>();
-    private KirjaVinkkiDao d = new MuistiKirjaVinkkiDao();
+    private MuistiKirjaVinkkiDao d = new MuistiKirjaVinkkiDao();
 
     @Given("luodaan kirjavinkki jonka kirjoittaja on {string}")
     public void kirjavinkkiLuodaan(String kirjoittajanNimi) {

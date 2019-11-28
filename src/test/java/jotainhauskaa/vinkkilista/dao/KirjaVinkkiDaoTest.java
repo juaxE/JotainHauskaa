@@ -23,7 +23,7 @@ public class KirjaVinkkiDaoTest {
 
     @Test
     public void luotuKirjaVinkinDaoPalauttaaTyhjanListan() {
-        KirjaVinkkiDao dao = new MuistiKirjaVinkkiDao();
+        MuistiKirjaVinkkiDao dao = new MuistiKirjaVinkkiDao();
 
         assertEquals(dao.getAll().size(), 0);
     }
@@ -31,7 +31,7 @@ public class KirjaVinkkiDaoTest {
     @Test
     public void kirjaVinkinDaoTallentaaJaPalauttaaVinkin() {
         
-        KirjaVinkkiDao dao = new MuistiKirjaVinkkiDao();
+        MuistiKirjaVinkkiDao dao = new MuistiKirjaVinkkiDao();
         dao.add(vinkki1);
 
         assertEquals(dao.getAll().get(0), vinkki1);
@@ -40,7 +40,7 @@ public class KirjaVinkkiDaoTest {
     @Test
     public void kirjaVinkinDaoPalauttaaOikeanMaaranVinkkeja() {
         
-        KirjaVinkkiDao dao = new MuistiKirjaVinkkiDao();
+        MuistiKirjaVinkkiDao dao = new MuistiKirjaVinkkiDao();
         dao.add(vinkki1);
         dao.add(vinkki2);
 
