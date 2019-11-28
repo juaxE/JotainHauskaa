@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
 import jotainhauskaa.vinkkilista.dao.MuistiKirjaVinkkiDao;
@@ -53,6 +54,12 @@ public class TipController {
     public String vinkkienSelailu(Model model) {
         model.addAttribute("vinkit", muistiKirjaVinkkiDao.getAll());
         return "selaussivu";
+    }
+
+    @GetMapping("/{vinkki.id}")
+    public String getOne(Model model, @PathVariable int id) {
+        model.addAttribute("paivita", muistiKirjaVinkkiDao.getOne(id));
+        return "paivita";
     }
 
 }
