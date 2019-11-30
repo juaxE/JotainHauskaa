@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "kirjavinkki", schema="xxxxx")
+@Table(name = "kirjavinkki")
 public class KirjaVinkki extends Vinkki {
     @Column(name = "kirjoittaja")
     private String kirjoittaja;
