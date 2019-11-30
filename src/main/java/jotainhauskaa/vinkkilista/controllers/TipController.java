@@ -17,8 +17,6 @@ import jotainhauskaa.vinkkilista.dao.VinkkiRepository;
 
 @Controller
 public class TipController {
-
-    private KirjaVinkki kirjavinkki;
     private MuistiKirjaVinkkiDao muistiKirjaVinkkiDao 
             = new MuistiKirjaVinkkiDao();
     @Autowired

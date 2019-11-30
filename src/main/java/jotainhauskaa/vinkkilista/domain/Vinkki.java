@@ -15,7 +15,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
     strategy = InheritanceType.JOINED
 )
 @Entity
-@DiscriminatorColumn(name = "vinkki")
+@DiscriminatorColumn(name = "vinkki", schema="xxxxx")
 
 public class Vinkki extends AbstractPersistable<Long> {
 
