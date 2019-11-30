@@ -28,6 +28,7 @@ project.ext {
 	junitVersion = '4.12'
 }
 dependencies {
+	compile group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
 	testCompile 'io.cucumber:cucumber-java:' + cucumberVersion
     testCompile 'io.cucumber:cucumber-junit:' + cucumberVersion
 	testCompile 'junit:junit:' + junitVersion
