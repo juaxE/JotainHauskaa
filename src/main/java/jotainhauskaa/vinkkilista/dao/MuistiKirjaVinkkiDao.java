@@ -9,38 +9,31 @@ import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
 public class MuistiKirjaVinkkiDao 
     implements LukuvinkkiDao<KirjaVinkki, Integer> {
 
-    //private List<KirjaVinkki> kirjavinkit;
-    private HashMap<Integer, KirjaVinkki> kirjavinkit;
+    private List<KirjaVinkki> kirjavinkit;
 
     public MuistiKirjaVinkkiDao() {
         //kirjavinkit = new ArrayList<KirjaVinkki>();
-        this.kirjavinkit = new HashMap<>();
+        this.kirjavinkit = new ArrayList<>();
     }
 
     @Override
     public List<KirjaVinkki> getAll() {
-        List<KirjaVinkki> vinkit = new ArrayList<>();
-        for (KirjaVinkki v : this.kirjavinkit.values()) {
-            vinkit.add(v);
-        }
-        return vinkit;
+        return this.kirjavinkit;
     }
 
     @Override
     public void add(KirjaVinkki vinkki) {
-        int id = kirjavinkit.size() + 1;
-        vinkki.setId(id);
-        kirjavinkit.put(id, vinkki);        
+        kirjavinkit.add(vinkki);        
     }
     
     @Override
     public void update(KirjaVinkki vinkki)   {
-        kirjavinkit.put(vinkki.getId(), vinkki);        
+              
     }
     
     @Override
     public KirjaVinkki getOne(Integer id) {
-        return kirjavinkit.getOrDefault(id, null);
+        return null;
 
     }
 }

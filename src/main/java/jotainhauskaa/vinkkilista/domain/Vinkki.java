@@ -1,14 +1,38 @@
 package jotainhauskaa.vinkkilista.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
-public class Vinkki {
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
+@Entity
+@Table(name = "vinkki")
+@Inheritance(
+    strategy = InheritanceType.JOINED
+)
+public class Vinkki extends AbstractPersistable<Long> {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+    @Column(name = "otsiko")
     private String otsikko;
+    @Column(name = "tyyppi")
     private String tyyppi; // Lukuvinkin tyyppi
+    @Column(name = "tagit")
     private String[] tagit;
+    @Column(name = "kurssit")
     private String[] kurssit;
+    @Column(name = "kommentti")
     private String kommentti;
+    @Column(name = "kuvaus")
     private String kuvaus;
-    private Integer id;
+
 
     
     public Vinkki(String otsikko, String tyyppi, String kommentti, 
@@ -20,7 +44,9 @@ public class Vinkki {
         this.tagit = tagit;
         this.kurssit = kurssit;        
     }
+    public Vinkki () {
 
+    }
     public String getOtsikko() {
         return otsikko;
     }
@@ -29,11 +55,11 @@ public class Vinkki {
         return tyyppi;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer idCode) {
+    public void setId(Long idCode) {
         this.id = idCode;
     }
 

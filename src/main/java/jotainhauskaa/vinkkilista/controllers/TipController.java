@@ -1,5 +1,6 @@
 package jotainhauskaa.vinkkilista.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,12 +12,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
 import jotainhauskaa.vinkkilista.dao.MuistiKirjaVinkkiDao;
+import jotainhauskaa.vinkkilista.dao.VinkkiRepository;
+
 
 @Controller
 public class TipController {
+
     private KirjaVinkki kirjavinkki;
     private MuistiKirjaVinkkiDao muistiKirjaVinkkiDao 
             = new MuistiKirjaVinkkiDao();
+    @Autowired
+    private VinkkiRepository vinkit;
 
     /*
      * @RequestMapping("/")
@@ -45,14 +51,18 @@ public class TipController {
         t[0] = tagit;
         String[] k = new String[1];
         k[0] = kurssit;
+        vinkit.saveAndFlush(new KirjaVinkki(kirjoittaja, otsikko, tyyppi, 
+        isbn, kuvaus, kommentti, t, k));
+
         muistiKirjaVinkkiDao.add(new KirjaVinkki(kirjoittaja, otsikko, tyyppi, 
                                                 isbn, kuvaus, kommentti, t, k));
+
         return "redirect:/";
     }
 
     @GetMapping("/selaa")
     public String vinkkienSelailu(Model model) {
-        model.addAttribute("vinkit", muistiKirjaVinkkiDao.getAll());
+        model.addAttribute("vinkit", vinkit.findAll());
         return "selaussivu";
     }
 

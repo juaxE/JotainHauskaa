@@ -2,8 +2,16 @@ package jotainhauskaa.vinkkilista.domain;
 
 import java.util.Arrays;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "kirjavinkki")
 public class KirjaVinkki extends Vinkki {
+    @Column(name = "kirjoittaja")
     private String kirjoittaja;
+    @Column(name = "isbn")
     private String isbn;
     // private String otsikko;
     // private String tyyppi;    
@@ -11,10 +19,8 @@ public class KirjaVinkki extends Vinkki {
     // private String kommentti;
     // private String[] tagit;
     // private String[] kurssit;
-    
-    
-    
-    
+
+
     public KirjaVinkki(String kirjoittaja, String otsikko, String tyyppi,
                        String isbn, String kuvaus, String kommentti,
                        String[] tagit, String[] kurssit) {
@@ -22,6 +28,9 @@ public class KirjaVinkki extends Vinkki {
         super(otsikko, tyyppi, kommentti, kuvaus, tagit, kurssit);        
         this.kirjoittaja = kirjoittaja;
         this.isbn = isbn;
+    }
+    public KirjaVinkki () {
+
     }
 
     public String getKirjoittaja() {
