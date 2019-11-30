@@ -1,20 +1,22 @@
 package jotainhauskaa.vinkkilista.domain;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
-@Entity
-@Table(name = "vinkki")
+
 @Inheritance(
     strategy = InheritanceType.JOINED
 )
+@Entity
+@DiscriminatorColumn(name = "vinkki")
+
 public class Vinkki extends AbstractPersistable<Long> {
 
     @Id
