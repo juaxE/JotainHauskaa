@@ -29,7 +29,7 @@ public class KirjaVinkki extends Vinkki {
         this.kirjoittaja = kirjoittaja;
         this.isbn = isbn;
     }
-    public KirjaVinkki () {
+    public KirjaVinkki() {
 
     }
 

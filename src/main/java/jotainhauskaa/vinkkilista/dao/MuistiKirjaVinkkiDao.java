@@ -1,7 +1,6 @@
 package jotainhauskaa.vinkkilista.dao;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import jotainhauskaa.vinkkilista.domain.KirjaVinkki;

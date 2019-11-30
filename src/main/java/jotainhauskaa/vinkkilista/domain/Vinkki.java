@@ -44,7 +44,7 @@ public class Vinkki extends AbstractPersistable<Long> {
         this.tagit = tagit;
         this.kurssit = kurssit;        
     }
-    public Vinkki () {
+    public Vinkki() {
 
     }
     public String getOtsikko() {
