@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -15,7 +16,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
     strategy = InheritanceType.JOINED
 )
 @Entity
-@DiscriminatorColumn(name = "vinkki")
+@Table(name = "vinkki")
 
 public class Vinkki extends AbstractPersistable<Long> {
 
