@@ -49,7 +49,7 @@ public class TipController {
         t[0] = tagit;
         String[] k = new String[1];
         k[0] = kurssit;
-        vinkit.saveAndFlush(new KirjaVinkki(kirjoittaja, otsikko, tyyppi, 
+        vinkit.save(new KirjaVinkki(kirjoittaja, otsikko, tyyppi, 
         isbn, kuvaus, kommentti, t, k));
 
         muistiKirjaVinkkiDao.add(new KirjaVinkki(kirjoittaja, otsikko, tyyppi, 
