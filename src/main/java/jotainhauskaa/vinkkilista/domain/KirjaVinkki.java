@@ -14,14 +14,16 @@ public class KirjaVinkki extends Vinkki {
     @Column(name = "isbn")
     private String isbn;
 
-    public KirjaVinkki() {}
-
     public KirjaVinkki(String kirjoittaja, String otsikko, String tyyppi,
                        String isbn, String kuvaus, String kommentti,
                        String[] tagit, String[] kurssit) {
         super(otsikko, tyyppi, kommentti, kuvaus, tagit, kurssit);        
         this.kirjoittaja = kirjoittaja;
         this.isbn = isbn;
+    }
+
+    public KirjaVinkki() {
+
     }
 
     public String getKirjoittaja() {
