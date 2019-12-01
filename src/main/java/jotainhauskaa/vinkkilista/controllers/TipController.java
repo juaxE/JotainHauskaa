@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import jotainhauskaa.vinkkilista.domain.KirjaVinkkiForm;
+import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
 import jotainhauskaa.vinkkilista.dao.MuistiKirjaVinkkiDao;
 import jotainhauskaa.vinkkilista.dao.VinkkiRepository;
 
@@ -24,7 +24,7 @@ public class TipController {
     private VinkkiRepository vinkit;
 
     @GetMapping("/lisaavinkki")
-    public String lisaysSivu(KirjaVinkkiForm vinkki) {
+    public String lisaysSivu(KirjaVinkki vinkki) {
         return "lisayssivu";
     }
 
@@ -34,13 +34,13 @@ public class TipController {
     }
 
     @PostMapping("/lisaavinkki")
-    public String vinkinLisays(@Valid KirjaVinkkiForm vinkki,
+    public String vinkinLisays(@Valid KirjaVinkki vinkki,
         BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "lisayssivu";
         }
 
-        vinkit.save(vinkki.getKirjaVinkki());
+        vinkit.save(vinkki);
         return "redirect:/";
     }
 
@@ -55,5 +55,4 @@ public class TipController {
         model.addAttribute("paivita", muistiKirjaVinkkiDao.getOne(id));
         return "paivita";
     }
-
 }
