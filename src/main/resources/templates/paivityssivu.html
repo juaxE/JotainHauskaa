@@ -7,42 +7,40 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     </head>
     <body>
-            <form class="form-signup" action="#" th:action="@{/paivita}" th:object="${kirjaVinkkiForm}" method="POST">
+            <form class="form-signup" action="#" th:action="@{/paivitaVinkinTiedot}" th:object="${kirjaVinkkiForm}" method="POST">
                 <div class = "container">
                     <h2 class="form-signup-heading">Lisää kirjavinkki</h2>
                     <div class = "col mb-1">
-                        <input id="kirjoittaja" name="kirjoittaja" th:field="*{kirjoittaja}" class="form-control"
+                        <input id="kirjoittaja" name="kirjoittaja" th:field="${vinkki.kirjoittaja}" class="form-control"
                                placeholder="Kirjoittajan nimi"/>
                     </div>
                     <div class = "col mb-1">
                         <input id="otsikko" name="otsikko" th:field="${vinkki.otsikko}" class="form-control"
-                               placeholder="Otsake" th:classappend="${not #lists.isEmpty(#fields.errors('otsikko'))} ? is-invalid"/>
-                        <div class="invalid-feedback" th:if="${#fields.hasErrors('otsikko')}" th:errors="*{otsikko}">
-                            Virhe
-                        </div>
+                               placeholder="Otsake"/>
+                        
                     </div>
                     <div class = "col mb-1">
-                        <input id="tyyppi" name="tyyppi" th:field="*{tyyppi}" class="form-control"
+                        <input id="tyyppi" name="tyyppi" th:field="${vinkki.tyyppi}" class="form-control"
                                 placeholder="Tyyppi"/>
                     </div>
                     <div class = "col mb-1">
-                        <input id="isbn" name="isbn" th:field="*{isbn}" class="form-control"
+                        <input id="isbn" name="isbn" th:field="${vinkki.isbn}" class="form-control"
                                 placeholder="ISBN"/>
                     </div>
                     <div class = "col mb-1">
-                        <input id="kuvaus" name="kuvaus" th:field="*{kuvaus}" class="form-control"
+                        <input id="kuvaus" name="kuvaus" th:field="${vinkki.kuvaus}" class="form-control"
                                 placeholder="Kuvaus"/>
                     </div>
                     <div class = "col mb-1">
-                        <textarea id="kommentti" name="kommentti" th:field="*{kommentti}" class="form-control"
+                        <textarea id="kommentti" name="kommentti" th:field="${vinkki.kommentti}" class="form-control"
                                 placeholder="Kommentti", rows="3"></textarea>
                     </div>
                     <div class = "col mb-1">
-                        <input id="tagit" name="tagit" th:field="*{tagit}" class="form-control"
+                        <input id="tagit" name="tagit" th:field="${vinkki.tagit}" class="form-control"
                                 placeholder="Lisää tageja"/>
                     </div>
                     <div class = "col mb-1">
-                        <input id="kurssit" name="kurssit" th:field="*{kurssit}" class="form-control"
+                        <input id="kurssit" name="kurssit" th:field="${vinkki.kurssit}" class="form-control"
                                 placeholder="Lisää aihealueeseen liittyviä kursseja"/>
                     </div>
                     <div class = "col">

@@ -53,9 +53,20 @@ public class TipController {
 
     @GetMapping("/paivita")
     public String getOne(Model model, @RequestParam("id") Long id) {
-        KirjaVinkki vinkki = muistiKirjaVinkkiDao.getOne(id);
+        KirjaVinkki vinkki = vinkit.getOne(id);
         model.addAttribute("vinkki", vinkki);
         return "paivityssivu";
+    }
+
+    @PostMapping("paivitaVinkinTiedot")
+    public String vinkinPaivitys(@Valid KirjaVinkkiForm vinkki,
+    BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "paivityssivu";
+        }
+
+        vinkit.save(vinkki.getKirjaVinkki());
+        return "redirect:/";
     }
 
 }
