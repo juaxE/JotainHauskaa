@@ -14,6 +14,10 @@ public class KirjaVinkki extends Vinkki {
     @Column(name = "isbn")
     private String isbn;
 
+    public KirjaVinkki() {
+        
+    }
+
     public KirjaVinkki(String kirjoittaja, String otsikko, String tyyppi,
                        String isbn, String kuvaus, String kommentti,
                        String[] tagit, String[] kurssit) {
@@ -21,17 +25,19 @@ public class KirjaVinkki extends Vinkki {
         this.kirjoittaja = kirjoittaja;
         this.isbn = isbn;
     }
-
-    public KirjaVinkki() {
-
-    }
-
     public String getKirjoittaja() {
         return kirjoittaja;
     }
 
     public String getIsbn() {
         return isbn;
+    }
+
+	public void setKirjoittaja(String kirjoittaja) {
+        this.kirjoittaja = kirjoittaja;
+    }
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     @Override

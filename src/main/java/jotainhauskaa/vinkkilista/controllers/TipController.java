@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
-import jotainhauskaa.vinkkilista.domain.KirjaVinkkiForm;
-import jotainhauskaa.vinkkilista.domain.KirjaVinkkiUpdateForm;
 import jotainhauskaa.vinkkilista.dao.MuistiKirjaVinkkiDao;
 import jotainhauskaa.vinkkilista.dao.VinkkiRepository;
 
@@ -26,7 +24,7 @@ public class TipController {
     private VinkkiRepository vinkit;
 
     @GetMapping("/lisaavinkki")
-    public String lisaysSivu(KirjaVinkkiForm vinkki) {
+    public String lisaysSivu(KirjaVinkki vinkki) {
         return "lisayssivu";
     }
 
@@ -36,13 +34,13 @@ public class TipController {
     }
 
     @PostMapping("/lisaavinkki")
-    public String vinkinLisays(@Valid KirjaVinkkiForm vinkki,
+    public String vinkinLisays(@Valid KirjaVinkki vinkki,
         BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "lisayssivu";
         }
 
-        vinkit.save(vinkki.getKirjaVinkki());
+        vinkit.save(vinkki);
         return "redirect:/";
     }
 
@@ -60,15 +58,14 @@ public class TipController {
     }
 
     @PostMapping("paivitaVinkinTiedot")
-    public String vinkinPaivitys(@Valid KirjaVinkkiUpdateForm vinkki, 
+    public String vinkinPaivitys(@Valid KirjaVinkki vinkki, 
     @RequestParam("id") Long id,
     BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "paivityssivu";
         }
 
-        vinkit.save(vinkki.getKirjaVinkki(id));
+        vinkit.save(vinkki);
         return "redirect:/";
     }
-
 }
