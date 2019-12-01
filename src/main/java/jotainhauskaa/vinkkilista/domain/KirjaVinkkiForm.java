@@ -5,7 +5,8 @@ import javax.validation.constraints.Size;
 
 public class KirjaVinkkiForm {
     @NotEmpty(message = "Otsikko ei voi olla tyhjä")
-    @Size(min = 3, max = 255, message = "Otsikon pitää olla vähintään 3 merkkiä pitkä")
+    @Size(min = 3, max = 255,
+        message = "Otsikon pitää olla vähintään 3 merkkiä pitkä")
     private String otsikko;
     private String tyyppi;
     private String[] tagit;
