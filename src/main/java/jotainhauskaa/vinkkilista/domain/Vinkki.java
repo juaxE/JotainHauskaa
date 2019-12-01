@@ -37,7 +37,19 @@ public class Vinkki extends AbstractPersistable<Long> {
     @Column(name = "kuvaus")
     private String kuvaus;
 
-    public Vinkki() {}
+    public Vinkki() {
+        
+    }
+
+    public Vinkki(String otsikko, String tyyppi, String kommentti, 
+                String kuvaus, String[] tagit, String[] kurssit) {
+        this.otsikko = otsikko;
+        this.tyyppi = tyyppi;
+        this.kommentti = kommentti;
+        this.kuvaus = kuvaus;
+        this.tagit = tagit;
+        this.kurssit = kurssit;        
+    }
 
     public Long getId() {
         return this.id;

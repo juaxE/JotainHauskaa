@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
 import jotainhauskaa.vinkkilista.dao.MuistiKirjaVinkkiDao;
@@ -50,9 +50,21 @@ public class TipController {
         return "selaussivu";
     }
 
-    @GetMapping("/{vinkki.id}")
-    public String getOne(Model model, @PathVariable int id) {
-        model.addAttribute("paivita", muistiKirjaVinkkiDao.getOne(id));
-        return "paivita";
+    @GetMapping("/paivita")
+    public String getOne(Model model, @RequestParam("id") Long id) {
+        KirjaVinkki vinkki = vinkit.getOne(id);
+        model.addAttribute("vinkki", vinkki);
+        return "paivityssivu";
+    }
+
+    @PostMapping("paivitaVinkinTiedot")
+    public String vinkinPaivitys(@Valid KirjaVinkki vinkki,
+    BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "paivityssivu";
+        }
+
+        vinkit.save(vinkki);
+        return "redirect:/";
     }
 }
