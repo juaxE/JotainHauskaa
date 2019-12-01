@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     </head>
     <body>
-            <form class="form-signup" action="#" th:action="@{/paivitaVinkinTiedot}" th:object="${kirjaVinkkiForm}" method="POST">
+            <form class="form-signup" action="#" th:action="@{/paivitaVinkinTiedot}" th:object="${kirjaVinkkiUpdateForm}" method="POST">
                 <div class = "container">
                     <h2 class="form-signup-heading">Lisää kirjavinkki</h2>
                     <div class = "col mb-1">
@@ -42,6 +42,9 @@
                     <div class = "col mb-1">
                         <input id="kurssit" name="kurssit" th:field="${vinkki.kurssit}" class="form-control"
                                 placeholder="Lisää aihealueeseen liittyviä kursseja"/>
+                    </div>
+                    <div>
+                        <input type="hidden" th:field=${vinkki.id} />
                     </div>
                     <div class = "col">
                             <button class="btn btn-md btn-primary mt-2" type="submit">Lisää vinkki</button>
