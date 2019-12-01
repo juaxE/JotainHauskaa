@@ -1,16 +1,22 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Kirjavinkki sovellus</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    </head>
-    <body>
-        <h1>Tervetuloa JotainHauskaa kirjavinkki-sovellukseen</h1>
-        <div class = "col-3">
-            <a href="/lisaavinkki" class="btn btn-md btn-primary btn-block" >Lisää kirjavinkki</a>
-            <a href="/selaa" class="btn btn-md btn-primary btn-block" >Katsele kirjavinkkejä</a>
-        </div>
-    </body>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Kirjavinkki sovellus</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+</head>
+
+<body>
+    <header th:insert="fragments/header :: header"></header>
+    <div class="jumbotron">
+        <h1 class="display-4">Tervetuloa JotainHauskaa kirjavinkki-sovellukseen</h1>
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="/lisaavinkki" role="button">Kokeile lisätä vinkki</a>
+        </p>
+    </div>
+</body>
+
 </html>
