@@ -6,7 +6,7 @@ import java.util.List;
 import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
 
 public class MuistiKirjaVinkkiDao 
-    implements LukuvinkkiDao<KirjaVinkki, Integer> {
+    implements LukuvinkkiDao<KirjaVinkki, Long> {
 
     private List<KirjaVinkki> kirjavinkit;
 
@@ -31,7 +31,13 @@ public class MuistiKirjaVinkkiDao
     }
     
     @Override
-    public KirjaVinkki getOne(Integer id) {
+    public KirjaVinkki getOne(Long id) {
+        for (KirjaVinkki vinkki : this.kirjavinkit) {            
+            if (vinkki.getId() == id) {                
+                return vinkki;
+            }
+        }
+
         return null;
 
     }
