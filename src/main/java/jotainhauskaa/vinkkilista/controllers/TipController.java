@@ -54,8 +54,8 @@ public class TipController {
     }
  
     @GetMapping("/hae")
-    public String haunSelailu(Model model, @RequestParam(value="haku", required=false) String haku) {
-        if(haku != null) {
+    public String haunSelailu(Model model, @RequestParam(value = "haku", required = false) String haku) {
+        if (haku != null) {
             model.addAttribute("vinkit", vinkit.findByOtsikkoContainingIgnoreCase(haku));
         }
 
