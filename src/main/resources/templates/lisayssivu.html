@@ -1,23 +1,26 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Kirjavinkki sovellus</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    </head>
-    <body>
-            <form class="form-signup" action="#" th:action="@{/lisaavinkki}" th:object="${kirjaVinkki}" method="POST">
-                <div class = "container">
-                    <h2 class="form-signup-heading">Lisää kirjavinkki</h2>
-                    <div class = "col mb-1">
-                        <input id="kirjoittaja" name="kirjoittaja" th:field="*{kirjoittaja}" class="form-control"
-                               placeholder="Kirjoittajan nimi"/>
-                    </div>
-                    <div class = "col mb-1">
-                        <input id="otsikko" name="otsikko" th:field="*{otsikko}" class="form-control"
-                               placeholder="Otsake" th:classappend="${not #lists.isEmpty(#fields.errors('otsikko'))} ? is-invalid"/>
-                        <div class="invalid-feedback" th:if="${#fields.hasErrors('otsikko')}" th:errors="*{otsikko}">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Kirjavinkki sovellus</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+</head>
+
+<body>
+    <header th:insert="fragments/header :: header"></header>
+    <form class="form-signup" action="#" th:action="@{/lisaavinkki}" th:object="${kirjaVinkki}" method="POST">
+        <div class="container">
+            <h2 class="form-signup-heading">Lisää kirjavinkki</h2>
+            <div class="col mb-1">
+                <input id="kirjoittaja" name="kirjoittaja" th:field="*{kirjoittaja}" class="form-control"
+                    placeholder="Kirjoittajan nimi" />
+            </div>
+            <div class="col mb-1">
+                <input id="otsikko" name="otsikko" th:field="*{otsikko}" class="form-control" placeholder="Otsake"
+                    th:classappend="${not #lists.isEmpty(#fields.errors('otsikko'))} ? is-invalid" />
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('otsikko')}" th:errors="*{otsikko}">
                             Virhe
                         </div>
                     </div>

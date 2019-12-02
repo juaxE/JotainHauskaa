@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <header th:insert="fragments/header :: header"></header>
     <div class="col-3">
         <form class="form-signup" action="#" th:action="@{/hae}" method="GET">
             <h2 class="form-signup-heading">Hae vinkeistä</h2>
@@ -50,9 +51,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-3">
-        <a href="/" class="btn btn-md btn-primary btn-block">Palaa etusivulle</a>
     </div>
 </body>
 
