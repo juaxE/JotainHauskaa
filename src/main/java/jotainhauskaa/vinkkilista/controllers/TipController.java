@@ -11,15 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
-import jotainhauskaa.vinkkilista.dao.MuistiKirjaVinkkiDao;
 import jotainhauskaa.vinkkilista.dao.VinkkiRepository;
 
 
 @Controller
 public class TipController {
-    private MuistiKirjaVinkkiDao muistiKirjaVinkkiDao 
-            = new MuistiKirjaVinkkiDao();
-
     @Autowired
     private VinkkiRepository vinkit;
 
@@ -55,6 +51,16 @@ public class TipController {
         KirjaVinkki vinkki = vinkit.getOne(id);
         model.addAttribute("vinkki", vinkki);
         return "paivityssivu";
+    }
+ 
+    @GetMapping("/hae")
+    public String haunSelailu(Model model, @RequestParam(value="haku", required=false) String haku) {
+        if(haku != null) {
+            model.addAttribute("vinkit", vinkit.findByOtsikkoContainingIgnoreCase(haku));
+        }
+
+        model.addAttribute("hakuehto", haku);
+        return "hakusivu";
     }
 
     @PostMapping("paivitaVinkinTiedot")

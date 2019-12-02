@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Kirjavinkki sovellus</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+</head>
+
+<body>
+    <div class="col-3">
+        <form class="form-signup" action="#" th:action="@{/hae}" method="GET">
+            <h2 class="form-signup-heading">Hae vinkeistä</h2>
+            <div class = "col pl-0">
+                <input type="text" id="haku" name="haku" class="form-control" placeholder="haku"/>
+                <button class="btn btn-md btn-primary btn-block" type="submit">Hae</button>
+            </div>
+        </form>
+    </div>
+
+    <div th:if="${!#lists.isEmpty(vinkit)}">
+            <h2>Hakutulokset haulla: <span th:text=${hakuehto}></h2>
+        <div th:each="vinkki :${vinkit}">
+            <div class="card bg-light text-dark mb-2 col-sm">
+                <div class="card-body">
+                    <h3 class="card-title" th:text="${vinkki.otsikko}"></h3>
+                    <div class ="col pl-0"> 
+                        Kirjoittaja: <span th:text="${vinkki.kirjoittaja}">
+                    </div>
+                    <div class ="col pl-0"> 
+                        Tyyppi: <span th:text="${vinkki.tyyppi}">
+                    </div>
+                    <div class ="col pl-0"> 
+                        ISBN: <span th:text="${vinkki.isbn}">
+                    </div>
+                    <div class ="col pl-0"> 
+                        Kuvaus: <span th:text="${vinkki.kuvaus}">
+                    </div>
+                    <div class ="col pl-0"> 
+                        Kommentti: <span th:text="${vinkki.kommentti}">
+                    </div>
+                    
+                    <div class ="col pl-0"> 
+                        Id: <span th:text="${vinkki.id}">
+                    </div>
+                    <div class="col-3 pl-0">                                        
+                        <a th:href="@{'/paivita?id=' + ${vinkki.id}}" class="btn btn-md btn-outline-primary btn-block">Päivitä Vinkki</a>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <a href="/" class="btn btn-md btn-primary btn-block">Palaa etusivulle</a>
+    </div>
+</body>
+
+</html>
