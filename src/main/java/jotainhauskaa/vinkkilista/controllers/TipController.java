@@ -66,6 +66,6 @@ public class TipController {
         }
 
         vinkit.save(vinkki);
-        return "redirect:/";
+        return "redirect:/selaa";
     }
 }
