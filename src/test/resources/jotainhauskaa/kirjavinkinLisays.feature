@@ -9,3 +9,6 @@ Feature: Käyttäjänä haluan voida lisätä kirjavinkin
         When kirjavinkki lisätään muistikirjaan
         Then kirjavinkki on lisätty muistikirjaan
     
+    Scenario: luodaan kirjavinkki ilman nimeä
+        Given luodaan kirjavinkki jolla ei ole nimeä
+        Then kirjavinkkiä ei lisätä
