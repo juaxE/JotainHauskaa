@@ -30,6 +30,13 @@ public class Stepdefs {
                 "Kaunokirjallisuus", "", new String[2], new String[2]));
     }
 
+    @Given ("luodaan kirjavinkki jolla ei ole nimeä")
+    public void kirjaVinkkiLuodaanNimetta() {
+        kirjavinkit.add(new KirjaVinkki("", "", "", "",
+                "a", "", new String[1], new String[1]));
+
+    }
+
     @Then("kirjan kirjoittajan nimen pitäisi olla {string}")
     public void kirjanKirjoittajanNimiOnOikein(String kirjoittajanNimi) {
         assertEquals("Esa", k.getKirjoittaja());
@@ -61,4 +68,11 @@ public class Stepdefs {
             d.add(vinkki);
         }
     }
+
+    @Then ("kirjavinkkiä ei lisätä")
+    public void kirjaVinkkejaEiLisataMuistikirjaan()  {
+        assertEquals(0, d.getAll().size());
+    }
+
+
 }
