@@ -25,3 +25,4 @@ User Story (vaatimus) on valmis, kun
     + testit menevät läpi
 + joku tiimin jäsen on tehnyt koodikatselmoinnin
 + story on otettu käyttöön herokussa
+
