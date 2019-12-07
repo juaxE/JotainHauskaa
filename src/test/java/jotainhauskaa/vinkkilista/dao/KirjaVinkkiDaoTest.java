@@ -2,7 +2,6 @@ package jotainhauskaa.vinkkilista.dao;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
-import jotainhauskaa.vinkkilista.dao.VinkkiRepository;
 
 @ActiveProfiles("test")
 @RunWith(SpringRunner.class)
