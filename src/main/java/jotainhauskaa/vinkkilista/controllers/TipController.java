@@ -55,7 +55,7 @@ public class TipController {
     @GetMapping("/poista")
     public String poista(@RequestParam("id") Long id) {
         vinkit.deleteById(id);
-        return "selaussivu";
+        return "redirect:/selaa";
     }
  
     @GetMapping("/hae")
