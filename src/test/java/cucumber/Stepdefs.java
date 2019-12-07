@@ -6,9 +6,11 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
 import jotainhauskaa.vinkkilista.dao.MuistiKirjaVinkkiDao;
+import java.util.ArrayList;
+
 //import jotainhauskaa.vinkkilista.dao.KirjaVinkkiDao;
 
-import java.util.ArrayList;
+
 
 public class Stepdefs {
     private KirjaVinkki k;

@@ -1,49 +1,42 @@
 package jotainhauskaa.vinkkilista.dao;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
+import jotainhauskaa.vinkkilista.dao.VinkkiRepository;
 
+@ActiveProfiles("test")
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class KirjaVinkkiDaoTest {
-    private KirjaVinkki vinkki1;
-    private KirjaVinkki vinkki2;
 
-    @BeforeEach
-    public void setUp() {
-        vinkki1 = new KirjaVinkki("1", "1", "kirja", "1", "1", 
+    @Autowired
+    private VinkkiRepository vr;
+
+    @Test
+    public void vinkkiRepositoryTallentaaJaPalauttaaVinkin() { 
+        KirjaVinkki vinkki1 = new KirjaVinkki("1", "Aapinen", "kirja", "1", "1", 
                                   "1", new String[]{"1", "2"}, 
                                    new String[]{"3", "4"});
         
-        vinkki2 = new KirjaVinkki("2", "2", "kirja", "2", "2", 
+        KirjaVinkki vinkki2 = new KirjaVinkki("1", "Raamattu", "kirja", "2", "2", 
                                   "2", new String[]{"5", "6"}, 
                                    new String[]{"7", "8"});
-    }
-
-    @Test
-    public void luotuKirjaVinkinDaoPalauttaaTyhjanListan() {
-        MuistiKirjaVinkkiDao dao = new MuistiKirjaVinkkiDao();
-
-        assertEquals(dao.getAll().size(), 0);
-    }
-
-    @Test
-    public void kirjaVinkinDaoTallentaaJaPalauttaaVinkin() {
         
-        MuistiKirjaVinkkiDao dao = new MuistiKirjaVinkkiDao();
-        dao.add(vinkki1);
-
-        assertEquals(dao.getAll().get(0), vinkki1);
+        vr.save(vinkki1);
+        vr.save(vinkki2);
+        assertEquals(vr.findAll().get(0), vinkki1);
     }
-
     @Test
     public void kirjaVinkinDaoPalauttaaOikeanMaaranVinkkeja() {
-        
-        MuistiKirjaVinkkiDao dao = new MuistiKirjaVinkkiDao();
-        dao.add(vinkki1);
-        dao.add(vinkki2);
-
-        assertEquals(dao.getAll().size(), 2);
+        assertEquals(vr.findAll().size(), 2);
     }
 }
