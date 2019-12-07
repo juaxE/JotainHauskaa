@@ -52,6 +52,11 @@ public class TipController {
         model.addAttribute("vinkki", vinkki);
         return "paivityssivu";
     }
+    @GetMapping("/poista")
+    public String poista(@RequestParam("id") Long id) {
+        vinkit.deleteById(id);
+        return "selaussivu";
+    }
  
     @GetMapping("/hae")
     public String haunSelailu(Model model, @RequestParam(value = "haku", required = false) String haku) {
@@ -74,4 +79,8 @@ public class TipController {
         vinkit.save(vinkki);
         return "redirect:/selaa";
     }
+    
+
+    
+    
 }
