@@ -10,8 +10,7 @@ public class MuistiKirjaVinkkiDao
 
     private List<KirjaVinkki> kirjavinkit;
 
-    public MuistiKirjaVinkkiDao() {
-        //kirjavinkit = new ArrayList<KirjaVinkki>();
+    public MuistiKirjaVinkkiDao() {        
         this.kirjavinkit = new ArrayList<>();
     }
 
@@ -24,21 +23,5 @@ public class MuistiKirjaVinkkiDao
     public void add(KirjaVinkki vinkki) {
         kirjavinkit.add(vinkki);        
     }
-    
-    @Override
-    public void update(KirjaVinkki vinkki)   {
-              
-    }
-    
-    @Override
-    public KirjaVinkki getOne(Long id) {
-        for (KirjaVinkki vinkki : this.kirjavinkit) {            
-            if (vinkki.getId() == id) {                
-                return vinkki;
-            }
-        }
-
-        return null;
-
-    }
+      
 }
