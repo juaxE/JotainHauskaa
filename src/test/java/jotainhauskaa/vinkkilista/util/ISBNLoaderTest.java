@@ -27,6 +27,16 @@ public class ISBNLoaderTest {
     }
 
     @Test
+    public void dashedIsbnReturnsExpectedBook() {
+        final ISBNLoader loader = new ISBNLoader();
+
+        KirjaVinkki vinkki = loader.getByISBN("978-0-521-80926-9");
+
+        assertTrue(vinkki.getOtsikko().equals("The Art of Electronics") 
+                   && vinkki.getKirjoittaja().equals("Paul Horowitz"));
+    }
+
+    @Test
     public void isbnReturnsExcpectedBook() {
         final ISBNLoader loader = new ISBNLoader();
 
@@ -35,4 +45,13 @@ public class ISBNLoaderTest {
         assertTrue(vinkki.getOtsikko().equals("The Art of Electronics") 
                    && vinkki.getKirjoittaja().equals("Paul Horowitz"));
     }
+
+    @Test
+    public void incorrectIsbnReturnsNull() {
+        final ISBNLoader loader = new ISBNLoader();
+
+        KirjaVinkki vinkki = loader.getByISBN("978-0-52");
+
+        assertEquals(vinkki, null);
+    }    
 }

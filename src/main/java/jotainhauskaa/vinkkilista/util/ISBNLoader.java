@@ -16,7 +16,9 @@ public class ISBNLoader {
         if (isbn == null || isbn.equals("")) {
             return null;
         }
-
+        
+        isbn = isbn.replace("-", "");
+        
         String q = "isbn:" + isbn;
 
         try {
@@ -31,8 +33,6 @@ public class ISBNLoader {
 
             KirjaVinkki vinkki = convertToKirjaVinkki(volumes.getItems().get(0));
 
-            System.out.println(vinkki.toString());
-
             return vinkki;
         } catch (Exception ex) {
             return null;
@@ -46,7 +46,7 @@ public class ISBNLoader {
         String otsikko = volumeInfo.getTitle();
         String tyyppi = "Kirja";
         String isbn = volumeInfo.getIndustryIdentifiers().get(0).getIdentifier();
-        String kuvaus = volumeInfo.getDescription();
+        String kuvaus = volumeInfo.getDescription().substring(0, 255);
         String kommentti = "";
         String[] tagit = volumeInfo.getCategories().toArray(new String[0]);
         String[] kurssit = new String[] {};

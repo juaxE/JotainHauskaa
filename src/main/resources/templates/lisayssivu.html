@@ -1,57 +1,70 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8" />
-    <title>Kirjavinkki sovellus</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Kirjavinkki sovellus</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    </head>
 
-<body>
-    <header th:insert="fragments/header :: header"></header>
-    <form class="form-signup" action="#" th:action="@{/lisaavinkki}" th:object="${kirjaVinkki}" method="POST">
-        <div class="container">
-            <h2 class="form-signup-heading">Lisää kirjavinkki</h2>
-            <div class="col mb-1">
-                <input id="kirjoittaja" name="kirjoittaja" th:field="*{kirjoittaja}" class="form-control"
-                    placeholder="Kirjoittajan nimi" />
-            </div>
-            <div class="col mb-1">
-                <input id="otsikko" name="otsikko" th:field="*{otsikko}" class="form-control" placeholder="Otsake"
-                    th:classappend="${not #lists.isEmpty(#fields.errors('otsikko'))} ? is-invalid" />
-                <div class="invalid-feedback" th:if="${#fields.hasErrors('otsikko')}" th:errors="*{otsikko}">
-                            Virhe
-                        </div>
-                    </div>
-                    <div class = "col mb-1">
-                        <input id="tyyppi" name="tyyppi" th:field="*{tyyppi}" class="form-control"
-                                placeholder="Tyyppi"/>
-                    </div>
-                    <div class = "col mb-1">
-                        <input id="isbn" name="isbn" th:field="*{isbn}" class="form-control"
-                                placeholder="ISBN"/>
-                    </div>
-                    <div class = "col mb-1">
-                        <input id="kuvaus" name="kuvaus" th:field="*{kuvaus}" class="form-control"
-                                placeholder="Kuvaus"/>
-                    </div>
-                    <div class = "col mb-1">
-                        <textarea id="kommentti" name="kommentti" th:field="*{kommentti}" class="form-control"
-                                placeholder="Kommentti", rows="3"></textarea>
-                    </div>
-                    <div class = "col mb-1">
-                        <input id="tagit" name="tagit" th:field="*{tagit}" class="form-control"
-                                placeholder="Lisää tageja"/>
-                    </div>
-                    <div class = "col mb-1">
-                        <input id="kurssit" name="kurssit" th:field="*{kurssit}" class="form-control"
-                                placeholder="Lisää aihealueeseen liittyviä kursseja"/>
-                    </div>
-                    <div class = "col">
-                            <button class="btn btn-md btn-primary mt-2" type="submit">Lisää vinkki</button>
-                    </div>  
+    <body>
+        <header th:insert="fragments/header :: header"></header>
+ 
+        <form class="form-signup" action="#" th:action="@{/lisaavinkkiisbn}" method="POST">
+            <div class="container">
+                <h2 class="form-signup-heading">Lisää ISBN:n mukaan</h2>
+                <div class="col mb-1">
+                    <input id="isbnlisays" type="text" name="isbn" class="form-control" placeholder="ISBN"/>
                 </div>
-            </form>
-        </body>
+                <div class = "col">
+                        <button class="btn btn-md btn-primary mt-2" type="submit">Lisää kirja</button>
+                </div>  
+            </div>
+        </form>
+
+        <form class="form-signup" action="#" th:action="@{/lisaavinkki}" th:object="${kirjaVinkki}" method="POST">
+            <div class="container">
+                <h2 class="form-signup-heading">Lisää kirjavinkki</h2>
+                <div class="col mb-1">
+                    <input id="kirjoittaja" name="kirjoittaja" th:field="*{kirjoittaja}" class="form-control"
+                        placeholder="Kirjoittajan nimi" />
+                </div>
+                <div class="col mb-1">
+                    <input id="otsikko" name="otsikko" th:field="*{otsikko}" class="form-control" placeholder="Otsake"
+                        th:classappend="${not #lists.isEmpty(#fields.errors('otsikko'))} ? is-invalid" />
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('otsikko')}" th:errors="*{otsikko}">
+                        Virhe
+                    </div>
+                </div>
+                <div class = "col mb-1">
+                    <input id="tyyppi" name="tyyppi" th:field="*{tyyppi}" class="form-control"
+                            placeholder="Tyyppi"/>
+                </div>
+                <div class = "col mb-1">
+                    <input id="isbn" name="isbn" th:field="*{isbn}" class="form-control"
+                            placeholder="ISBN"/>
+                </div>
+                <div class = "col mb-1">
+                    <input id="kuvaus" name="kuvaus" th:field="*{kuvaus}" class="form-control"
+                            placeholder="Kuvaus"/>
+                </div>
+                <div class = "col mb-1">
+                    <textarea id="kommentti" name="kommentti" th:field="*{kommentti}" class="form-control"
+                            placeholder="Kommentti", rows="3"></textarea>
+                </div>
+                <div class = "col mb-1">
+                    <input id="tagit" name="tagit" th:field="*{tagit}" class="form-control"
+                            placeholder="Lisää tageja"/>
+                </div>
+                <div class = "col mb-1">
+                    <input id="kurssit" name="kurssit" th:field="*{kurssit}" class="form-control"
+                            placeholder="Lisää aihealueeseen liittyviä kursseja"/>
+                </div>
+                <div class = "col">
+                        <button class="btn btn-md btn-primary mt-2" type="submit">Lisää vinkki</button>
+                </div>  
+            </div>
+        </form>
+    </body>
 </html>

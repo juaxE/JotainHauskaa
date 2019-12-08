@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
+import jotainhauskaa.vinkkilista.util.ISBNLoader;
 import jotainhauskaa.vinkkilista.dao.VinkkiRepository;
 
 
@@ -37,6 +38,19 @@ public class TipController {
         }
 
         vinkit.save(vinkki);
+        return "redirect:/";
+    }
+
+    @PostMapping("/lisaavinkkiisbn")
+    public String vinkinLisaysISBN(String isbn) {
+
+        KirjaVinkki vinkki = new ISBNLoader().getByISBN(isbn);
+
+        if (vinkki != null) {
+            System.out.println(vinkki.toString());
+            vinkit.save(vinkki);
+        }
+
         return "redirect:/";
     }
 
