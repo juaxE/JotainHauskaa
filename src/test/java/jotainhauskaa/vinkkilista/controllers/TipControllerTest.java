@@ -122,5 +122,13 @@ public class TipControllerTest {
         assertTrue(content.contains("Hakutulokset haulla:"));
     }
 
-
+    @Test public void paivitysFormMeneeLapi() throws Exception {        
+        
+        mockMvc.perform(
+            post("/paivitaVinkinTiedot")
+            .contentType(MediaType.APPLICATION_FORM_URLENCODED).characterEncoding("UTF-8")
+            .param("id", "2")
+            .param("otsikko", "sanoja peräkkäin"))
+            .andExpect(status().is3xxRedirection());
+   }
 }
