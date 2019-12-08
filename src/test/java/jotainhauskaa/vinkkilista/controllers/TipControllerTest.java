@@ -39,6 +39,11 @@ public class TipControllerTest {
         KirjaVinkki vinkki = new KirjaVinkki();
         vinkki.setOtsikko("Testi otsikko");
         vinkit.save(vinkki);
+
+        KirjaVinkki v2 = new KirjaVinkki();
+        v2.setOtsikko("kirjan");
+        v2.setKirjoittaja("kirjoittaja");
+        vinkit.save(v2);
     }
 
     @Test
@@ -61,6 +66,22 @@ public class TipControllerTest {
     }
 
     @Test
+    public void sovellusPalauttaaPaivitysSivun() throws Exception {
+        MvcResult res = mockMvc.perform(get("/paivita?id=2")).andExpect(status().isOk())
+            .andReturn();
+
+        String content = res.getResponse().getContentAsString();
+        assertTrue(content.contains("Päivitä kirjavinkki"));
+    }
+
+    @Test
+    public void sovellusPalauttaaPoistonJalkeenSelaussivun() throws Exception {        
+        mockMvc.perform(get("/poista?id=1")).andExpect(status().is3xxRedirection());            
+        
+    }
+
+
+    @Test
     public void sovellusPalauttaaSelausSivun() throws Exception {
         MvcResult res = mockMvc.perform(get("/selaa"))
             .andReturn();
@@ -69,6 +90,8 @@ public class TipControllerTest {
         assertTrue(content.contains("Lisätyt kirjavinkit"));
     }
 
+
+    
     @Test public void lisaaFormPalauttaaVirheet() throws Exception {
         MvcResult res = mockMvc.perform(
             post("/lisaavinkki")
@@ -98,4 +121,15 @@ public class TipControllerTest {
         String content = res.getResponse().getContentAsString();
         assertTrue(content.contains("Hakutulokset haulla:"));
     }
+
+    @Test public void paivitysFormMeneeLapi() throws Exception {        
+        
+        mockMvc.perform(
+            post("/paivitaVinkinTiedot")
+            .contentType(MediaType.APPLICATION_FORM_URLENCODED).characterEncoding("UTF-8")
+            .param("id", "2")
+            .param("otsikko", "sanoja peräkkäin"))
+            .andExpect(status().is3xxRedirection());
+   }
+
 }
