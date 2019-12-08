@@ -131,4 +131,5 @@ public class TipControllerTest {
             .param("otsikko", "sanoja peräkkäin"))
             .andExpect(status().is3xxRedirection());
    }
+
 }
