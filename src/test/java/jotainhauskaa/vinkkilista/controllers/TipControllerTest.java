@@ -67,12 +67,19 @@ public class TipControllerTest {
 
     @Test
     public void sovellusPalauttaaPaivitysSivun() throws Exception {
-        MvcResult res = mockMvc.perform(get("/paivita?id=1"))
+        MvcResult res = mockMvc.perform(get("/paivita?id=2")).andExpect(status().isOk())
             .andReturn();
 
         String content = res.getResponse().getContentAsString();
         assertTrue(content.contains("Päivitä kirjavinkki"));
     }
+
+    @Test
+    public void sovellusPalauttaaPoistonJalkeenSelaussivun() throws Exception {        
+        mockMvc.perform(get("/poista?id=1")).andExpect(status().is3xxRedirection());            
+        
+    }
+
 
     @Test
     public void sovellusPalauttaaSelausSivun() throws Exception {
