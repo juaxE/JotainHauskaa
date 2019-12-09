@@ -11,4 +11,4 @@ Feature: Käyttäjänä haluan voida lisätä kirjavinkin
     
     Scenario: luodaan kirjavinkki ilman nimeä
         Given luodaan kirjavinkki jolla ei ole nimeä
-        Then kirjavinkkiä ei lisätä
+        Then kirjavinkkejä ei ole

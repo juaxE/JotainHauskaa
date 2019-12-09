@@ -71,7 +71,7 @@ public class Stepdefs {
         }
     }
 
-    @Then ("kirjavinkkiä ei lisätä")
+    @Then ("kirjavinkkejä ei ole")
     public void kirjaVinkkejaEiLisataMuistikirjaan()  {
         assertEquals(0, d.getAll().size());
     }
