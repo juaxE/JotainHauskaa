@@ -46,8 +46,7 @@ public class TipController {
 
         KirjaVinkki vinkki = new ISBNLoader().getByISBN(isbn);
 
-        if (vinkki != null) {
-            System.out.println(vinkki.toString());
+        if (vinkki != null) {            
             vinkit.save(vinkki);
         }
 
