@@ -111,6 +111,15 @@ public class TipControllerTest {
             .andExpect(status().is3xxRedirection());
     }
 
+    @Test public void lisaaISBNFormMeneeLapi() throws Exception {
+        mockMvc.perform(
+            post("/lisaavinkkiisbn")
+                .contentType(MediaType.APPLICATION_FORM_URLENCODED).characterEncoding("UTF-8")
+                .param("isbnlisays", "9781789539134"))
+            .andExpect(status().is3xxRedirection());
+    }
+
+
     @Test public void sovellusPalauttaaHakuSivun() throws Exception {
         MvcResult res = mockMvc.perform(
             get("/hae")
