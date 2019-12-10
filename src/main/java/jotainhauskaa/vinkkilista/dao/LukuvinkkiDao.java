@@ -7,5 +7,9 @@ public interface LukuvinkkiDao<T, K> {
     List<T> getAll();
     
     void add(T vinkki);
+
+    void remove(K id);
+
+    void removeAll();
     
 }
