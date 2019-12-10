@@ -12,7 +12,7 @@
     <header th:insert="fragments/header :: header"></header>
     <form class="form-signup" action="#" th:action="@{/paivitaVinkinTiedot}" th:object="${kirjaVinkki}" method="POST">
         <div class="container">
-            <h2 class="form-signup-heading">Lisää kirjavinkki</h2>
+            <h2 class="form-signup-heading">Päivitä kirjavinkki</h2>
             <div class="col mb-1">
                 <input id="kirjoittaja" name="kirjoittaja" th:field="${vinkki.kirjoittaja}" class="form-control"
                     placeholder="Kirjoittajan nimi" />

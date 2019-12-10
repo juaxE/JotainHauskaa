@@ -39,8 +39,9 @@
                     <div class ="col pl-0"> 
                         Id: <span th:text="${vinkki.id}">
                     </div>
-                    <div class="col-3 pl-0">                                        
-                        <a th:href="@{'/paivita?id=' + ${vinkki.id}}" class="btn btn-md btn-outline-primary btn-block">Päivitä Vinkki</a>                    
+                    <div class="col pl-0">                                        
+                        <a th:href="@{'/paivita?id=' + ${vinkki.id}}" class="btn btn-md btn-outline-primary">Päivitä Vinkki</a>
+                        <a th:href="@{'/poista?id=' + ${vinkki.id}}" class="btn btn-md btn-outline-danger float-right">Poista vinkki</a>                    
                     </div>
                 </div>
             </div>

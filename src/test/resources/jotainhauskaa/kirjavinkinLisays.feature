@@ -2,7 +2,7 @@ Feature: Käyttäjänä haluan voida lisätä kirjavinkin
 
     Scenario: luodaan kirjavinkki
         Given luodaan kirjavinkki jonka kirjoittaja on "Esa"
-        Then kirjan kirjoittajan nimen pitäisi olla "esa"
+        Then kirjan kirjoittajan nimen pitäisi olla "Esa"
     
     Scenario: tallennetaan kirjavinkki onnistuneesti muistikirjaan
         Given luodaan kirjavinkki jonka kirjoittaja on "Esa"
@@ -11,4 +11,4 @@ Feature: Käyttäjänä haluan voida lisätä kirjavinkin
     
     Scenario: luodaan kirjavinkki ilman nimeä
         Given luodaan kirjavinkki jolla ei ole nimeä
-        Then kirjavinkkiä ei lisätä
+        Then kirjavinkkejä ei ole

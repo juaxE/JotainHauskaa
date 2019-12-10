@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jotainhauskaa.vinkkilista.domain.KirjaVinkki;
+import jotainhauskaa.vinkkilista.util.ISBNLoader;
 import jotainhauskaa.vinkkilista.dao.VinkkiRepository;
 
 
@@ -40,6 +41,18 @@ public class TipController {
         return "redirect:/";
     }
 
+    @PostMapping("/lisaavinkkiisbn")
+    public String vinkinLisaysISBN(String isbn) {
+
+        KirjaVinkki vinkki = new ISBNLoader().getByISBN(isbn);
+
+        if (vinkki != null) {            
+            vinkit.save(vinkki);
+        }
+
+        return "redirect:/";
+    }
+
     @GetMapping("/selaa")
     public String vinkkienSelailu(Model model) {
         model.addAttribute("vinkit", vinkit.findAll());
@@ -51,6 +64,11 @@ public class TipController {
         KirjaVinkki vinkki = vinkit.getOne(id);
         model.addAttribute("vinkki", vinkki);
         return "paivityssivu";
+    }
+    @GetMapping("/poista")
+    public String poista(@RequestParam("id") Long id) {
+        vinkit.deleteById(id);
+        return "redirect:/selaa";
     }
  
     @GetMapping("/hae")
@@ -74,4 +92,8 @@ public class TipController {
         vinkit.save(vinkki);
         return "redirect:/selaa";
     }
+    
+
+    
+    
 }

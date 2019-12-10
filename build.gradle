@@ -23,10 +23,12 @@ configurations {
 repositories {
 	mavenCentral()
 }
+
 project.ext {
     cucumberVersion = '4.7.4'
 	junitVersion = '4.12'
 }
+
 dependencies {
 	
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -38,6 +40,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	compile("com.h2database:h2")
+    compile 'com.google.apis:google-api-services-books:v1-rev20191103-1.30.3'
+    compile 'com.google.api-client:google-api-client:1.30.6'
 	runtimeOnly 'org.postgresql:postgresql'
     runtimeOnly 'org.webjars:jquery:3.3.1-1'
     runtimeOnly 'org.webjars:jquery-ui:1.12.1'
@@ -47,6 +51,7 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 }
+
 task copyToLib(type: Copy) {
     into "$buildDir/libs"
     from(configurations.compile)
