@@ -4,6 +4,9 @@ OhTu:n miniprojekti syksy 2019
 [![CircleCI](https://circleci.com/gh/juaxE/JotainHauskaa.svg?style=svg)](https://circleci.com/gh/juaxE/JotainHauskaa)
 [![codecov](https://codecov.io/gh/juaxE/JotainHauskaa/branch/master/graph/badge.svg)](https://codecov.io/gh/juaxE/JotainHauskaa)
 
+# Raportti
+[Raportti](https://github.com/juaxE/JotainHauskaa/blob/master/asiakastapaamiset/raportti.md)
+
 # Demo
 [vinkki.herokuapp.com](https://vinkki.herokuapp.com/)
 
