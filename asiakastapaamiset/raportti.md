@@ -32,5 +32,5 @@ User storyjen taskien estimointi suoritettiin keskustelemalla ja konsensus löyt
 Sprinteille emme muistaneet määritellä tavoitetta, kun kurssimateriaalin perusteella yleensä tehtäisiin. 
 
 ## opitut asiat
-Scrumin noudattaminen on teoriassa helppoa, käytännössä vaikeaa.
+Scrumin noudattaminen on teoriassa helppoa, käytännössä vaikeaa. 
 
