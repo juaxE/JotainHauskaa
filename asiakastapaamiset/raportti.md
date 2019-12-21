@@ -32,9 +32,12 @@ Scrumissa on tapana pitää daily standup tai vastaava aamupalaveri tiimin keske
 
 User storyjen taskien estimointi suoritettiin keskustelemalla ja konsensus löytyi aika nopeasti. Suhteessa kurssimateriaaliin esimerkiksi planning poker olisi tuntunut turhan formaalilta tavalta ottaen huomioon kuinka luontevasti estimointi sujui näinkin. Useimmiten estimaatit pitivät kutinsa.
 
+Taskien delegointi ja päivittäminen tuotti erityisesti alussa ongelmia, kun pahimmassa tapauksessa kaksi teki samaa taskia tietämättään. Saimme kuitenkin korjattua asian jakamalla alustavat taskit heti sprintin alussa ja ottamalla käytännön, että Telegrammissa ilmoitetaan kun uusi taski otetaan. Taskien statuksen ja jäljellä olevan ajan päivittely tuottivat haasteita vielä loppuun asti ja olisi ollut seuraavaankiin sprinttiin sopiva kehityskohta.
+
 Sprinteille emme muistaneet määritellä tavoitetta, kuten kurssimateriaalin perusteella yleensä tehtäisiin.
 
 ## Opitut asiat
 
 * Scrumin noudattaminen on teoriassa helppoa, käytännössä vaikeaa.
 * WIP-rajoitukset helpottavat taskien valmiiksi saamista definition of donen tasolla.
+* Uuden kehitys on mukavaa, testien kirjoittaminen unohtuu helposti.
